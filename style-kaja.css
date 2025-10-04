@@ -11,10 +11,61 @@ body {
   background-size: cover;
 }
 
+#linksnuffkin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    background: #000;
+}
+
+#linksnuffkin {
+  width: 300px;
+  height: 200px;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  transition: all 0.5s ease;
+}
+
+#linksnuffkin {
+  color: #0ff;
+  font-size: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+#linksnuffkin:before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    0deg, 
+    transparent, 
+    transparent 30%, 
+    rgba(0,255,255,0.3)
+  );
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
 #linksnuffkin:hover {
-    color: white;
-    text-decoration: none;
-    background-color: #282425;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0,255,255,0.5);
+   text-decoration: underline;
+}
+
+#linksnuffkin:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
+   text-decoration: underline;
 }
 
 h1,
@@ -109,11 +160,6 @@ a:hover {
   align-items: center;
   /* ostatní styly zůstávají */
 }
-
-#snuffkinimg:hover {
-    image-orientation: flip;
-}
-  
 
 .hlavicka {
   position: relative;        /* makes the header a positioning container */
