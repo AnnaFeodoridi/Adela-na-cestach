@@ -21,15 +21,13 @@
     </header>
 
     <!-- Menu -->
-     <header class="menu" id="menu">
-        <h1>
-            <ul>
-                <li><a href="#omne">O mně</a></li>
-                <li><a href="#fotogalerie">Fotogalerie</a></li>
-                <li><a href="#pruvodce">Turistický průvodce</a></li>
-                <li><a href="#kontakt">Kontakt</a></li>
-            </ul>
-        </h1>
+    <header class="menu" id="menu">
+        <ul>
+          <li><a href="#omne">O mně</a></li>
+          <li><a href="#fotogalerie">Fotogalerie</a></li>
+          <li><a href="#pruvodce">Turistický průvodce</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
     </header>
 
     <!-- Sekce O mně -->
@@ -133,10 +131,9 @@
       <p>
         Ráda si povídám. O horách, hudbě, prostě o životě. Ráda zajdu na koncert
         nebo na cestovatelskou přednášku. Pokud máš podobné zájmy, klidně mi
-        napiš na <a href="mailto:adela@email.cz">email</a> nebo se mi ozvi na<a
+        napiš na <a href="mailto:adela@email.cz"> email</a> nebo se mi ozvi na <a
           href="https://www.facebook.com"
-          >Facebooku</a
-        >. Stále hledám nové kamarády.
+          >Facebooku</a>. Stále hledám nové kamarády.
       </p>
 
       <h3>Oficiální kontakt pro pracoví záležitosti</h3>
@@ -156,27 +153,34 @@
       </p>
     </section>
     <!-- Patička stránky -->
-    <footer class="paticka" id ="paticka">
+    <footer class="paticka" id="paticka">
       <p>© 2018, Adéla Maříková</p>
     </footer>
-        <button id="scrollTopBtn" title="Go to top">↑</button>
+    <button id="scrollTopBtn" title="Go to top">↑</button>
     <script>
-  // Show button after scrolling down
-  window.onscroll = function() { scrollFunction(); };
+      // Show button after scrolling down
+      window.onscroll = function () {
+        scrollFunction();
+      };
 
-  function scrollFunction() {
-    const btn = document.getElementById("scrollTopBtn");
-    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-      btn.style.display = "block";
-    } else {
-      btn.style.display = "none";
-    }
-  }
+      function scrollFunction() {
+        const btn = document.getElementById("scrollTopBtn");
+        if (
+          document.body.scrollTop > 200 ||
+          document.documentElement.scrollTop > 200
+        ) {
+          btn.style.display = "block";
+        } else {
+          btn.style.display = "none";
+        }
+      }
 
-  // Scroll to the top smoothly
-  document.getElementById("scrollTopBtn").addEventListener("click", function() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-</script>
-    </body>
+      // Scroll to the top smoothly
+      document
+        .getElementById("scrollTopBtn")
+        .addEventListener("click", function () {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
+  </body>
 </html>
