@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Anya's page</title>
+
+    <link rel="stylesheet" href="anya_style.css"/>
+  </head>
+
+  <body>
+    <button id="playMusic">Play Music 🎶</button>
+    <audio
+      id="bgMusic"
+      src="anyas_page/Iroh_Avatar_the_last_Airbender_-_Leaves_From_the_Vine_instrumental_(mp3.pm).mp3"
+    ></audio>
+
+    <h1>
+      <img src="anyas_page/atla-flower-crowns.gif" alt="hiiii" />
+    </h1>
+
+    <main>
+      <div class="text-box">
+        <p>
+          Hi! I'm Anya and Ima tell you smth about myself. I am (almost) 29 yo,
+          Scorpio Moon and Sun, Aquarius Ascendent and maybe (just maybe) I am a
+          little tiny bit obsessed with labeling peeps based on their astro
+          signs. Or maybe I'm just kidding, who knows.
+        </p>
+      </div>
+
+      <div class="text-box">
+        <p>
+          Anyways... I really like watching the movies and cartoons, I have an
+          account on
+          <a href="https://letterboxd.com/a_feodoridi/">Letterboxd</a>, where I
+          log the suff I liked (and not really liked).
+        </p>
+      </div>
+
+      <div class="text-box">
+        <p>
+          I have the sweetest cat Kiki. She's almost 4 yo and she warms me up at
+          nights, sleeping next to my butt and preventing me from moving in bed
+          🥲
+          <img class="photo" src="anyas_page/Kikusha.jpg" alt="Kiki" />
+        </p>
+      </div>
+
+      <div class="text-box">
+        <p>
+          Currently I'm stadying QA Testing at
+          <a href="https://www.czechitas.cz/">Czechitas Academy</a>, and
+          currently my team and I are working on our own pages. If you wanna
+          check the pages of other girls, go to the
+          <a href="index.html">main menu</a> and click on the name of girl, whose
+          page you wanna check out 🌸 
+          
+          <p>I mean, studying is cool, but also hard
+          sometimes... Our first Sprint almost destroyed us, the whole mood was
+          like:
+          </p>
+          <img class="photo" src="anyas_page/memechko.jpg" alt="memes" />
+        </p>
+      </div>
+
+      <div class="text-box">
+        <p>
+          Oh, btw, that's the slide <a href="nikol.html">Niki</a> made for our
+          team when we had to present our team! Isn't it amazeballs?
+          <img class="photo" src="anyas_page/presa.jpg" alt="presentation" />
+        </p>
+      </div>
+    </main>
+
+    <div id="lightbox">
+      <img id="lightbox-img" src="" alt="Opened image" />
+    </div>
+
+    <script>
+      // Логика для музыки
+      const btn = document.getElementById("playMusic");
+      const audio = document.getElementById("bgMusic");
+      audio.loop = true;
+      btn.addEventListener("click", () => {
+        audio.play();
+        btn.style.display = "none";
+      });
+
+      // 🌸 Логика для открытия изображения
+      const images = document.querySelectorAll(".photo");
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+
+      images.forEach((img) => {
+        img.addEventListener("click", () => {
+          lightboxImg.src = img.src;
+          lightbox.classList.add("show");
+        });
+      });
+
+      // Закрытие при клике на фон
+      lightbox.addEventListener("click", () => {
+        lightbox.classList.remove("show");
+      });
+    </script>
+  </body>
+</html>

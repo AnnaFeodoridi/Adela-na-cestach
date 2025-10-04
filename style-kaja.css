@@ -1,0 +1,287 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Raleway:wght@400;500&display=swap");
+
+body {
+  font-family: "Raleway", sans-serif;
+  line-height: 1.5;
+  color: #282425;
+  background-color: #fff1e6;
+  margin: 0;
+  background-image: url(obrazky/background-moomin.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#linksnuffkin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    background: #000;
+}
+
+#linksnuffkin {
+  width: 300px;
+  height: 200px;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  transition: all 0.5s ease;
+}
+
+#linksnuffkin {
+  color: #0ff;
+  font-size: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+#linksnuffkin:before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    0deg, 
+    transparent, 
+    transparent 30%, 
+    rgba(0,255,255,0.3)
+  );
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+#linksnuffkin:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0,255,255,0.5);
+   text-decoration: underline;
+}
+
+#linksnuffkin:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
+   text-decoration: underline;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  color: #756158;
+}
+
+h1 {
+  font-size: clamp(32px, 6vw, 80px);
+  text-align: center;
+  color: white;
+}
+
+h2 {
+  font-size: 48px;
+  text-align: center;
+  color: #756158;
+}
+
+h3 {
+  font-size: clamp(18px, 2.5vw, 24px);
+    color: #756158;
+}
+
+a {
+  font-style: italic;
+  color: #756158;
+  text-decoration: none; /* optional, cleaner look */
+}
+
+a:hover {
+  text-decoration: underline; /* optional hover effect */
+}
+
+#fotogalerie,
+#kontakt {
+  background-color: #f9e3d0;
+  padding: 20px;
+}
+
+#menu {
+  background-color: #282425;
+  color: white;
+  padding: clamp(10px, 1.5vw, 20px) 0;
+  text-align: center;
+}
+
+#menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: clamp(10px, 3vw, 30px);
+}
+
+#menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: clamp(14px, 1.3vw, 18px);
+  transition: color 0.3s ease;
+}
+
+#menu a:hover {
+  color: #f9e3d0; /* lighter color on hover */
+}
+
+#pruvodce {
+  background-color: #f9e3d0;
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(40, 36, 37, 0.08);
+  text-align: center;
+}
+
+#omne {
+  background-color: #f9e3d0;
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(40, 36, 37, 0.08);
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* ostatní styly zůstávají */
+}
+
+.hlavicka {
+  position: relative;        /* makes the header a positioning container */
+  text-align: center;        /* centers text horizontally */
+  color: white;              /* makes text visible over dark image */
+}
+
+.hlavicka img {
+  width: 100%;
+  height: auto;
+  display: block;            /* removes small gaps below the image */
+  filter: brightness(60%);   /* darkens image for better text readability */
+}
+
+.hlavicka h1 {
+  position: absolute;
+  top: 50%;                  /* vertical center */
+  left: 50%;                 /* horizontal center */
+  transform: translate(-50%, -50%);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 80px;
+  color: #fff;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+}
+
+#pruvodce img {
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+  border-radius: 10px;
+  margin: 20px 0 30px 0;
+}
+
+#pruvodce p {
+  text-align: justify;
+  margin-bottom: 18px;
+}
+
+p, td, th, li {
+  font-size: clamp(14px, 1.2vw, 20px);
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff1e6;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead th {
+  background-color: #756158;
+  color: #fff;
+  text-align: center;
+  padding: clamp(8px, 1vw, 12px) clamp(10px, 1vw, 16px);
+  font-weight: 600;
+}
+
+tbody td {
+  padding: clamp(8px, 1vw, 12px) clamp(10px, 1vw, 16px);
+  border-bottom: 1px solid #f9e3d0;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #fef7f2;
+}
+
+tbody tr:hover {
+  background-color: #f3d9c2;
+  transition: background-color 0.3s ease;
+}
+
+td:last-child,
+th:last-child {
+  text-align: right;
+  white-space: nowrap;
+}
+
+#paticka {
+  background-color: #282425;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+section {
+padding: 50px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+}
+#scrollTopBtn {
+  display: none; /* hidden by default */
+  position: fixed; /* stays in place */
+  bottom: 30px; /* distance from bottom */
+  right: 30px; /* distance from right */
+  z-index: 1000; /* above other elements */
+  background-color: #282425; /* dark background */
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 14px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+#scrollTopBtn:hover {
+  background-color: #444; /* lighter on hover */
+  transform: translateY(-3px);
+}
+/*
+font-family: 'Raleway', sans-serif;
+font-family: 'Playfair Display', serif;
+*/
+
+html {
+  scroll-behavior: smooth;
+}

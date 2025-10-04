@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,500&family=Raleway:wght@400;500&display=swap");
+
+/* 🌸 General page setup */
+body {
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 1.7;
+  background: linear-gradient(180deg, #fff1e6 0%, #f9e3d0 100%);
+  color: #282425;
+  margin: 0;
+  padding: 0 10vw;
+  text-align: center;
+  scroll-behavior: smooth;
+}
+
+/* 🌼 Header */
+header {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+header img {
+  width: clamp(200px, 40vw, 400px);
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* 🪻 Paragraphs */
+p {
+  margin: 24px 0;
+  font-size: clamp(16px, 1.5vw, 20px);
+  text-align: justify;
+  text-align-last: center;
+}
+
+/* 🩰 Text boxes */
+.text-box {
+  background: #ffffffcc; /* soft semi-transparent white */
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  padding: clamp(16px, 2vw, 24px);
+  margin: 24px auto;
+  max-width: 800px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.text-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Compact text styling inside boxes */
+.text-box p {
+  margin: 0;
+  font-size: clamp(16px, 1.4vw, 20px);
+  text-align: justify;
+  text-align-last: center;
+}
+
+/* Adjust spacing for photos inside boxes */
+.text-box img.photo {
+  margin-top: 16px;
+  width: clamp(220px, 60%, 500px);
+  border-radius: 12px;
+}
+
+/* 🌷 Links */
+a {
+  color: #756158;
+  font-style: italic;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #a88e74;
+}
+
+/* 🐈 Images */
+.photo {
+  display: block;
+  margin: 24px auto;
+  width: clamp(200px, 60%, 600px);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.text-box {
+  background: #ffffffcc;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  padding: clamp(16px, 2vw, 24px);
+  margin: 24px auto;
+  max-width: 800px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* чтобы изображение не выходило за границы */
+}
+
+.text-box p {
+  margin: 0 auto;
+  font-size: clamp(16px, 1.4vw, 20px);
+  text-align: justify;
+  text-align-last: center;
+  max-width: 90%;
+}
+
+.text-box img {
+  display: block;              /* чтобы можно было центрировать */
+  margin: 20px auto 0 auto;    /* верхний отступ 20px, остальное авто — центрирование */
+  max-width: 90%;              /* ограничиваем ширину */
+  height: auto;                /* сохраняем пропорции */
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* 🎶 Music button */
+#playMusic {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 100;
+  background-color: #756158;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 18px;
+  font-size: 16px;
+  font-family: "Raleway", sans-serif;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+#playMusic:hover {
+  background-color: #a88e74;
+  transform: translateY(-3px);
+}
+
+/* 🩰 Responsive tweaks */
+@media (max-width: 600px) {
+  body {
+    padding: 0 5vw;
+  }
+  .photo {
+    width: 90%;
+  }
+}
+
+#lightbox {
+  display: none;                   /* скрыт по умолчанию */
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75); /* лёгкое затемнение */
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;                /* курсор при наведении */
+}
+
+/* 🖼️ Само изображение */
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+  transition: transform 0.3s ease;
+}
+
+/* Анимация появления */
+#lightbox.show {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
