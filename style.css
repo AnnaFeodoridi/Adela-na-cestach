@@ -1,6 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Raleway:wght@400;500&display=swap");
+
 body {
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #282425;
   background-color: #fff1e6;
   margin: 0;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: #756158;
+}
+
+a {
+  font-style: italic;
+  color: #756158;
+  text-decoration: none; /* optional, cleaner look */
+}
+
+a:hover {
+  text-decoration: underline; /* optional hover effect */
 }
 
 #fotogalerie,
@@ -9,7 +31,6 @@ body {
   padding: 20px;
 }
 
-#menu,
 #paticka {
   background-color: #282425;
   color: white;
@@ -17,24 +38,52 @@ body {
   text-align: center;
 }
 
+#menu {
+  background-color: #282425;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+#menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* space between links */
+}
+
+#menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+#menu a:hover {
+  color: #f9e3d0; /* lighter color on hover */
+}
+
 section {
   margin-bottom: 30px;
   border-radius: 8px;
 }
 #scrollTopBtn {
-  display: none;              /* hidden by default */
-  position: fixed;            /* stays in place */
-  bottom: 30px;               /* distance from bottom */
-  right: 30px;                /* distance from right */
-  z-index: 1000;              /* above other elements */
-  background-color: #282425;  /* dark background */
+  display: none; /* hidden by default */
+  position: fixed; /* stays in place */
+  bottom: 30px; /* distance from bottom */
+  right: 30px; /* distance from right */
+  z-index: 1000; /* above other elements */
+  background-color: #282425; /* dark background */
   color: #fff;
   border: none;
   border-radius: 50%;
   padding: 14px 18px;
   font-size: 20px;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }
 
@@ -46,7 +95,6 @@ section {
 font-family: 'Raleway', sans-serif;
 font-family: 'Playfair Display', serif;
 */
-
 
 html {
   scroll-behavior: smooth;
