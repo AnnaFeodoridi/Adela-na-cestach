@@ -2,7 +2,6 @@
 
 body {
   font-family: "Raleway", sans-serif;
-  font-size: 20px;
   line-height: 1.5;
   color: #282425;
   background-color: #fff1e6;
@@ -18,18 +17,20 @@ h3 {
 }
 
 h1 {
-  font-size: 80px;
+  font-size: clamp(32px, 6vw, 80px);
   text-align: center;
   color: white;
 }
 
 h2 {
-  font-size: 48px;
+  font-size: clamp(24px, 4vw, 48px);
   text-align: center;
+  color: #756158;
 }
 
 h3 {
-  font-size: 24px;
+  font-size: clamp(18px, 2.5vw, 24px);
+    color: #756158;
 }
 
 a {
@@ -51,7 +52,7 @@ a:hover {
 #menu {
   background-color: #282425;
   color: white;
-  padding: 20px 0;
+  padding: clamp(10px, 1.5vw, 20px) 0;
   text-align: center;
 }
 
@@ -59,16 +60,16 @@ a:hover {
   list-style: none;
   margin: 0;
   padding: 0;
-
   display: flex;
   justify-content: center;
-  gap: 30px; /* space between links */
+  gap: clamp(10px, 3vw, 30px);
 }
 
 #menu a {
   color: white;
   text-decoration: none;
   font-weight: 500;
+  font-size: clamp(14px, 1.3vw, 18px);
   transition: color 0.3s ease;
 }
 
@@ -105,28 +106,28 @@ a:hover {
 }
 
 .hlavicka {
-  position: relative; /* makes the header a positioning container */
-  text-align: center; /* centers text horizontally */
-  color: white; /* makes text visible over dark image */
+  position: relative;        /* makes the header a positioning container */
+  text-align: center;        /* centers text horizontally */
+  color: white;              /* makes text visible over dark image */
 }
 
 .hlavicka img {
   width: 100%;
   height: auto;
-  display: block; /* removes small gaps below the image */
-  filter: brightness(60%); /* darkens image for better text readability */
+  display: block;            /* removes small gaps below the image */
+  filter: brightness(60%);   /* darkens image for better text readability */
 }
 
 .hlavicka h1 {
   position: absolute;
-  top: 50%; /* vertical center */
-  left: 50%; /* horizontal center */
+  top: 50%;                  /* vertical center */
+  left: 50%;                 /* horizontal center */
   transform: translate(-50%, -50%);
-  font-family: "Playfair Display", serif;
+  font-family: 'Playfair Display', serif;
   font-style: italic;
   font-size: 80px;
   color: #fff;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
 }
 
 #pruvodce img {
@@ -140,6 +141,10 @@ a:hover {
 #pruvodce p {
   text-align: justify;
   margin-bottom: 18px;
+}
+
+p, td, th, li {
+  font-size: clamp(14px, 1.2vw, 20px);
 }
 
 .table-wrap {
@@ -159,12 +164,12 @@ thead th {
   background-color: #756158;
   color: #fff;
   text-align: center;
-  padding: 12px 16px;
+  padding: clamp(8px, 1vw, 12px) clamp(10px, 1vw, 16px);
   font-weight: 600;
 }
 
 tbody td {
-  padding: 12px 16px;
+  padding: clamp(8px, 1vw, 12px) clamp(10px, 1vw, 16px);
   border-bottom: 1px solid #f9e3d0;
 }
 
@@ -191,7 +196,7 @@ th:last-child {
 }
 
 section {
-  padding: 50px;
+padding: 50px;
   margin-bottom: 30px;
   border-radius: 8px;
 }
