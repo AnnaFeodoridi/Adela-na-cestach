@@ -1,6 +1,47 @@
 body {
+  background-color: #fff1e6;
+  margin: 0;
 }
 
+#fotogalerie,
+#kontakt {
+  background-color: #f9e3d0;
+  padding: 20px;
+}
+
+#menu,
+#paticka {
+  background-color: #282425;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+section {
+  margin-bottom: 30px;
+  border-radius: 8px;
+}
+#scrollTopBtn {
+  display: none;              /* hidden by default */
+  position: fixed;            /* stays in place */
+  bottom: 30px;               /* distance from bottom */
+  right: 30px;                /* distance from right */
+  z-index: 1000;              /* above other elements */
+  background-color: #282425;  /* dark background */
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 14px 18px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+#scrollTopBtn:hover {
+  background-color: #444; /* lighter on hover */
+  transform: translateY(-3px);
+}
 /*
 font-family: 'Raleway', sans-serif;
 font-family: 'Playfair Display', serif;
