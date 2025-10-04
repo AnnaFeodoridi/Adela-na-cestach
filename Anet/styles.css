@@ -4,10 +4,21 @@
     box-sizing: border-box;
 }
 
+input,
+select,
+button {
+  font-family: 'Quintessential', cursive;
+}
+
 body {
-    background-color: rgb(203, 109, 243);
+    margin: 0;
+    height: 100vh;
+    background-image: url('https://images.unsplash.com/photo-1505009608774-cfa484f461b3?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGRlYXRofGVufDB8fDB8fHwy');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
     color: white;
-    font-family: "Poppins", sans-serif;
+    font-family: "Quintessential", sans-serif;
     min-height: 100vh;
 }
 
@@ -29,21 +40,21 @@ form button {
     padding-left: 1rem;
     font-size: 1.8rem;
     border: none;
-    background: rgb(242, 222, 252);
+    background: rgb(171, 171, 171);
     border-radius: 2rem;
 }
 
 form button {
-    color: rgb(159, 110, 197);
-    background: rgb(242, 222, 252);
+    color: rgb(82, 82, 82);
+    background: rgb(109, 109, 109);
     cursor: pointer;
     transition: all 0.3 ease;
     margin-left: 0.5rem;
 }
 
 form button:hover {
-    color: rgb(242, 222, 252);
-    background: rgb(159, 110, 197);
+    color: rgb(109, 109, 109);
+    background: rgb(82, 82, 82)
 }
 
 .fa-plus-circle {
@@ -68,7 +79,7 @@ form button:hover {
     justify-content: space-between;
     margin: 0.5rem;
     padding: 0.5rem 1rem;
-    background: rgb(242, 222, 252);
+    background: rgb(109, 109, 109);
     color: black;
     font-size: 1.5rem;
     transition: 0.5s;
@@ -103,7 +114,7 @@ form button:hover {
 .trash-btn, 
 .edit-btn,
 .complete-btn {
-    color: rgb(242, 222, 252);
+    color: rgb(190, 190, 190);
     border: none;
     padding: 1rem;
     cursor: pointer;
@@ -147,10 +158,10 @@ form button:hover {
 }
 
 .edit-input {
-    font-family: "Poppins", sans-serif;
+    font-family: 'Quintessential', cursive;
     font-size: 1.5rem;
     color: black;
-    background: rgb(242, 222, 252);
+    background: rgb(109, 109, 109);
     border: none;
     padding: 0.5rem;
     padding-left: 0.5rem;
@@ -177,7 +188,7 @@ select {
 }
 
 select {
-    color:rgb(159, 110, 197);
+    color:rgb(82, 82, 82);
     width: 10rem;
     height: 3.2rem;
     cursor: pointer;
@@ -187,7 +198,7 @@ select {
 .select::after {
     content: "\25BC";
     position: absolute;
-    background:rgb(159, 110, 197);
+    background:rgb(82, 82, 82);
     top: 0;
     right: 0;
     padding: 1rem;
@@ -196,6 +207,158 @@ select {
 }
 
 .select::hover::after {
-    background: rgb(242, 222, 252);
-    color: rgb(159, 110, 197);
+    background: rgb(109, 109, 109);
+    color: rgb(82, 82, 82);
 }
+
+/* Bat swarm effect */
+.bat-root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* never block UI */
+  overflow: visible;
+  z-index: 900; /* below modals, above most content; adjust if needed */
+}
+
+.bat {
+  position: absolute;
+  width: 26px;           
+  height: 16px;
+  transform-origin: center;
+  opacity: 0;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,0.15));
+}
+
+/* tiny flit in from left */
+@keyframes bat-flit-in-left {
+  0%   { transform: translateX(-120%) translateY(0) scale(0.7) rotate(-8deg); opacity: 0; }
+  40%  { opacity: 1; transform: translateX(-30%) translateY(-4px) scale(1) rotate(4deg); }
+  70%  { transform: translateX(-15%) translateY(2px) scale(0.95) rotate(-2deg); opacity: 0.9; }
+  100% { transform: translateX(0%) translateY(0) scale(0.9) rotate(0deg); opacity: 0; }
+}
+
+/* tiny flit in from right */
+@keyframes bat-flit-in-right {
+  0%   { transform: translateX(120%) translateY(0) scale(0.7) rotate(8deg); opacity: 0; }
+  40%  { opacity: 1; transform: translateX(30%) translateY(4px) scale(1) rotate(-4deg); }
+  70%  { transform: translateX(15%) translateY(-2px) scale(0.95) rotate(2deg); opacity: 0.9; }
+  100% { transform: translateX(0%) translateY(0) scale(0.9) rotate(0deg); opacity: 0; }
+}
+
+/* slight random fluttering via animation-delay/iteration-count controlled in JS */
+.bat--left {
+  animation-name: bat-flit-in-left;
+  animation-timing-function: cubic-bezier(.2,.8,.4,1);
+}
+
+.bat--right {
+  animation-name: bat-flit-in-right;
+  animation-timing-function: cubic-bezier(.2,.8,.4,1);
+}
+
+/* --- Swarming bats: improved animation --- */
+
+/* base container already present: .bat-root { position: fixed; ... } */
+
+.bat {
+  position: absolute;
+  width: 40px;             
+  height: 24px;
+  pointer-events: none;
+  transform-origin: center center;
+  will-change: transform, opacity;
+  z-index: 900;
+  opacity: 0;
+  display: inline-block;
+}
+
+/* whole-bat movement: uses CSS variables set from JS per-bat */
+.bat--left  { animation-name: bat-move-left;  animation-timing-function: cubic-bezier(.25,.8,.25,1);  }
+.bat--right { animation-name: bat-move-right; animation-timing-function: cubic-bezier(.25,.8,.25,1);  }
+
+/* ensure per-bat vars apply */
+.bat {
+  /* defaults (overridden from JS) */
+  --travel-x: 140px;   /* horizontal travel distance into viewport */
+  --travel-y: 18px;    /* vertical curve amplitude */
+  --rot-start: -10deg;
+  --rot-mid:  6deg;
+  --rot-end:  0deg;
+  --dur: 900ms;
+  --delay: 0ms;
+}
+
+/* flight keyframes: left-moving (starts offscreen left, moves rightwards) */
+@keyframes bat-move-left {
+  0% {
+    transform: translateX(calc(-1 * var(--travel-x) - 60px)) translateY(calc(var(--travel-y) * -0.5)) rotate(var(--rot-start)) scale(var(--scale,1));
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  45% {
+    transform: translateX(calc(var(--travel-x) * 0.45)) translateY(calc(var(--travel-y) * 0.8)) rotate(var(--rot-mid)) scale(var(--scale,1));
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(calc(var(--travel-x) * 0.9)) translateY(calc(var(--travel-y) * -0.6)) rotate(var(--rot-end)) scale(calc(var(--scale,1) * 0.95));
+    opacity: 0;
+  }
+}
+
+/* flight keyframes: right-moving (starts offscreen right, moves leftwards) */
+@keyframes bat-move-right {
+  0% {
+    transform: translateX(calc(1 * var(--travel-x) + 60px)) translateY(calc(var(--travel-y) * -0.5)) rotate(var(--rot-start)) scale(var(--scale,1));
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  45% {
+    transform: translateX(calc(-1 * var(--travel-x) * 0.45)) translateY(calc(var(--travel-y) * 0.8)) rotate(var(--rot-mid)) scale(var(--scale,1));
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(calc(-1 * var(--travel-x) * 0.9)) translateY(calc(var(--travel-y) * -0.6)) rotate(var(--rot-end)) scale(calc(var(--scale,1) * 0.95));
+    opacity: 0;
+  }
+}
+
+/* wing flap animation — targets elements inside the SVG */
+.bat svg .wing {
+  transform-origin: 50% 50%;
+  animation: wing-flap calc(140ms + var(--flap-offset, 0ms)) infinite ease-in-out;
+}
+
+/* tail/ear tiny bounce to add life */
+.bat svg .body-bob {
+  transform-origin: 50% 50%;
+  animation: body-bob calc(400ms + var(--bob-offset, 0ms)) infinite ease-in-out;
+}
+
+/* wing flap keyframes */
+@keyframes wing-flap {
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(-22deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* subtle body bob */
+@keyframes body-bob {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-2px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ensure visible svg path uses currentColor so JS can change color if needed */
+.bat svg path { fill: currentColor; }
+
+/* optional: slightly larger hitbox for visibility while testing */
+.bat.debug { outline: 1px dashed rgba(255,255,255,0.08); }
+
